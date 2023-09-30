@@ -1,6 +1,8 @@
 "use client"
 
-import { lines } from '@/data/mock';
+// import { lines } from '@/data/mock';
+import { lines } from "@/data/first-scene";
+
 import { Answer, CommittedAnswer } from '@/data/types';
 import React, { useMemo, useState } from 'react';
 import { Scene } from './Scene';

@@ -4,16 +4,16 @@ export const lines: Types.Line[] = [
   {
     speaking: "left",
     left: {
-      type: Types.CharacterType.Dog,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Happy,
     },
     right: {
-      type: Types.CharacterType.Cat,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Sad,
     },
     environment: Types.Environment.Room,
     content: {
-      text: "Are you happy?",
+      text: "Are you happy? śćźół ółć",
       key: "happy",
       answers: [
         {
@@ -36,11 +36,11 @@ export const lines: Types.Line[] = [
   {
     speaking: "right",
     left: {
-      type: Types.CharacterType.Dog,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Happy,
     },
     right: {
-      type: Types.CharacterType.Cat,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Sad,
     },
     environment: Types.Environment.Room,
@@ -51,11 +51,11 @@ export const lines: Types.Line[] = [
   },
   {
     left: {
-      type: Types.CharacterType.Cat,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Sad,
     },
     right: {
-      type: Types.CharacterType.Dog,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Happy,
     },
     environment: Types.Environment.Forest,
@@ -76,11 +76,11 @@ export const lines: Types.Line[] = [
   },
   {
     left: {
-      type: Types.CharacterType.Rabbit,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Neutral,
     },
     right: {
-      type: Types.CharacterType.Fox,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Happy,
     },
     environment: Types.Environment.Meadow,
@@ -105,11 +105,11 @@ export const lines: Types.Line[] = [
   },
   {
     left: {
-      type: Types.CharacterType.Bird,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Happy,
     },
     right: {
-      type: Types.CharacterType.Snake,
+      type: Types.CharacterType.Frog,
       mood: Types.Mood.Sad,
     },
     environment: Types.Environment.Desert,
@@ -129,3 +129,4 @@ export const lines: Types.Line[] = [
     },
   },
 ];
+
