@@ -33,18 +33,20 @@
   border-bottom-color: grey;
   bottom: 60%;
   left: 50%;
-  transition: 300ms ease-in-out left;
-  display: none;
+  transition: 300ms ease-in-out left, 100ms ease-in-out top;
+  opacity: 0;
 }
 
 .arrow[data-actor="left"] {
     left: 30%;
     display: block;
+    opacity: 1;
 }
 
 .arrow[data-actor="right"] {
     left: 70%;
     display: block;
+    opacity: 1;
 }
 
 .leftActor,
