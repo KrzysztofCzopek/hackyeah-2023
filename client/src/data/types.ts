@@ -1,11 +1,7 @@
 export enum CharacterType {
-  Dog = 'dog',
-  Cat = 'cat',
-  Bird = 'bird',
-  You = 'you',
-  Fox = "Fox",
-  Rabbit = "Rabbit",
-  Snake = "Snake"
+  Frog = "Frog",
+  Cat = "Cat",
+  Dog = "Dog"
 }
 
 export enum Environment {

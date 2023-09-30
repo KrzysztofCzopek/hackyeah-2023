@@ -19,7 +19,7 @@ export const Scene: React.FC<SceneProps> = ({ scene, onAnswerSelected }) => {
           {scene.left ? <Character character={scene.left} /> : null}
         </div>
         <div className={styles.rightActor}>
-          {scene.right ? <Character character={scene.right} /> : null}
+          {scene.right ? <Character flip character={scene.right} /> : null}
         </div>
       </div>
       <div data-actor={scene.speaking} className={styles.arrow}></div>
