@@ -8,9 +8,6 @@ export enum CharacterType {
   Snake = "Snake"
 }
 
-
-
-
 export enum Environment {
   Room = 'room',
   Street = 'street',
@@ -53,8 +50,9 @@ export interface Character {
 }
 
 export interface Line {
-    left: Character;
-    right: Character;
+    speaking?: "left" | "right"
+    left?: Character;
+    right?: Character;
     environment: Environment;
     content: Narration | Question;
 }

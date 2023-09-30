@@ -39,7 +39,7 @@ export const Question: React.FC<QuestionProps> = ({
 
   return (
     <div className={styles.container}>
-      {question.text}
+      <div className={styles.question}>{question.text}</div>
       {answers.map((answer) => (
         <Answer
           selected={selected === answer}

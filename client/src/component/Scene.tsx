@@ -6,7 +6,6 @@ import Character from "./Character";
 import { Question } from "./Question";
 import { Narration } from "./Narration";
 
-
 interface SceneProps {
   scene: Types.Line;
   onAnswerSelected: (answer?: Types.Answer) => void;
@@ -17,20 +16,22 @@ export const Scene: React.FC<SceneProps> = ({ scene, onAnswerSelected }) => {
     <article className={styles.scene}>
       <div className={styles.actors}>
         <div className={styles.leftActor}>
-          <Character character={scene.left} />
+          {scene.left ? <Character character={scene.left} /> : null}
         </div>
         <div className={styles.rightActor}>
-          <Character character={scene.right} />
+          {scene.right ? <Character character={scene.right} /> : null}
         </div>
       </div>
+      <div data-actor={scene.speaking} className={styles.arrow}></div>
       <div className={styles.dialogue}>
-        {
-          Types.isQuestion(scene.content) ? (
-            <Question onAnswerSelected={onAnswerSelected} question={scene.content} />
-            ) : (
-              <Narration narration={scene.content} onSkipped={onAnswerSelected} />
-            )
-        }
+        {Types.isQuestion(scene.content) ? (
+          <Question
+            onAnswerSelected={onAnswerSelected}
+            question={scene.content}
+          />
+        ) : (
+          <Narration narration={scene.content} onSkipped={onAnswerSelected} />
+        )}
       </div>
     </article>
   );

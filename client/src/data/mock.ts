@@ -2,6 +2,7 @@ import * as Types from "./types";
 
 export const lines: Types.Line[] = [
   {
+    speaking: "left",
     left: {
       type: Types.CharacterType.Dog,
       mood: Types.Mood.Happy,
@@ -33,6 +34,7 @@ export const lines: Types.Line[] = [
     },
   },
   {
+    speaking: "right",
     left: {
       type: Types.CharacterType.Dog,
       mood: Types.Mood.Happy,
