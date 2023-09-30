@@ -9,3 +9,6 @@ export interface ResponseTraits {
     points: number
   }[]
 }
+
+export enum UniversityTrait { A = 'A' }
+export enum MajorTrait { B = 'B' }
