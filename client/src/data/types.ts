@@ -53,7 +53,7 @@ export interface Line {
     speaking?: "left" | "right"
     left?: Character;
     right?: Character;
-    environment: Environment;
+    environment?: Environment;
     content: Narration | Question;
 }
 
