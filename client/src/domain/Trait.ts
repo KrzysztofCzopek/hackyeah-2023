@@ -2,7 +2,7 @@ import { GameResponse } from './Game'
 
 export enum CandidateTrait { C = 'C' }
 
-interface ResponseTraits {
+export interface ResponseTraits {
   response: GameResponse
   traits: {
     trait: CandidateTrait,
