@@ -50,6 +50,7 @@ const Character: React.FC<CharacterProps> = ({
         width={256}
         height={256}
         alt={displayedCharacter}
+        unoptimized
         src={images[displayedCharacter]}
       />
     </div>

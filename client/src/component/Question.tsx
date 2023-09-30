@@ -3,6 +3,7 @@ import styles from "./Question.module.css";
 import * as Types from "@/data/types";
 import Button from "./Button";
 import Answer from "./Answer";
+import Typewriter, { TypewriterClass } from "typewriter-effect";
 
 interface QuestionProps {
   question: Types.Question;
@@ -39,7 +40,15 @@ export const Question: React.FC<QuestionProps> = ({
 
   return (
     <div className={styles.container}>
-      <div className={styles.question}>{question.text}</div>
+      <div className={styles.question}>
+      <Typewriter
+          options={{
+            autoStart: true,
+            delay: 20,
+            strings: question.text,
+          }}
+        />
+      </div>
       {answers.map((answer) => (
         <Answer
           selected={selected === answer}

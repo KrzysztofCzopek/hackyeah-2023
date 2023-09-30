@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Narration.module.css";
 import * as Types from "@/data/types";
 import Button from "./Button";
+import Typewriter, { TypewriterClass } from "typewriter-effect";
 
 interface NarrationProps {
   narration: Types.Narration;
@@ -12,7 +13,13 @@ export const Narration: React.FC<NarrationProps> = ({ narration, onSkipped }) =>
 
   return (
     <div className={styles.container}>
-      {narration.text}
+        <Typewriter
+          options={{
+            delay: 20,
+            autoStart: true,
+            strings: narration.text,
+          }}
+        />
       <div className={styles.menu}>
         <Button
           className={styles.continue}
