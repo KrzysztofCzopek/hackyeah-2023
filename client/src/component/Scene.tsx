@@ -16,10 +16,10 @@ export const Scene: React.FC<SceneProps> = ({ scene, onAnswerSelected }) => {
     <article className={styles.scene}>
       <div className={styles.actors}>
         <div className={styles.leftActor}>
-          {scene.left ? <Character character={scene.left} /> : null}
+          <Character character={scene.left} />
         </div>
         <div className={styles.rightActor}>
-          {scene.right ? <Character flip character={scene.right} /> : null}
+          <Character flip character={scene.right} />
         </div>
       </div>
       <div data-actor={scene.speaking} className={styles.arrow}></div>

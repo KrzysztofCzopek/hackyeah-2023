@@ -13,7 +13,7 @@ const CAT_DOG = {
 
 export const lines: Types.Line[] = [
   {
-    ...CAT_DOG,
+    left: CAT_DOG.left,
     speaking: "left",
     environment: Types.Environment.Room,
     content: {
@@ -22,7 +22,7 @@ export const lines: Types.Line[] = [
     },
   },
   {
-    ...CAT_DOG,
+    right: CAT_DOG.right,
     speaking: "right",
     content: {
       text: "Hał Hał, wybierz mnie!!! Jestem pies ja umiem szczekać!!",
@@ -33,7 +33,7 @@ export const lines: Types.Line[] = [
     ...CAT_DOG,
     content: {
       key: "oswietlenie-kot-odpowiedz",
-      text: "...",
+      text: "Kto powinien zająć się oświetleniem?",
       answers: [
         {
           text: "Pies",
@@ -46,4 +46,20 @@ export const lines: Types.Line[] = [
       ],
     },
   },
+  {
+    content: {
+      key: "lol",
+      text: "Empty!?",
+      answers: [
+        {
+          text: "lol",
+          key: "pies",
+        },
+        {
+          text: "lol2",
+          key: "kot",
+        },
+      ],
+    },
+  }
 ];

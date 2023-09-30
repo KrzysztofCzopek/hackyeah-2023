@@ -33,7 +33,7 @@
   border-bottom-color: grey;
   bottom: 60%;
   left: 50%;
-  transition: 300ms ease-in-out left, 100ms ease-in-out top;
+  transition: 400ms ease-in-out left, 100ms ease-in-out top;
   opacity: 0;
 }
 

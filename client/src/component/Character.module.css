@@ -1,9 +1,16 @@
+.container[data-flip="true"] {
+    transform: scaleX(-1);
+}
+
 .image {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+
+  transition: 300ms linear all;
+  transform: translateX(0);
 }
 
-.image[data-flip="true"] {
-  transform: scaleX(-1);
+.image[data-shift="true"] {
+    transform: translateX(-500px);
 }
