@@ -1,0 +1,36 @@
+.scene {
+    flex: 1;
+    position: relative;
+}
+
+.actors {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: 0;
+    height: 40%;
+}
+
+.dialogue {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.leftActor,
+.rightActor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+
+.confirm {
+    margin-top: 1em;
+}

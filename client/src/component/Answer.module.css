@@ -1,0 +1,16 @@
+.container::before {
+    font-size: 0.6em;
+    content: "►";
+    margin-right: 10px;
+}
+
+.container {
+    background: #666;
+    color: #fff;
+    width: 100%;
+}
+
+.container[data-selected=true] {
+    background-color: green;
+    color: #fff;
+}
