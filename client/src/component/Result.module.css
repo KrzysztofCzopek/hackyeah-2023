@@ -5,7 +5,7 @@
 
 .resultContainer {
     max-width: 500px;
-    margin: 0 auto;
+    padding: 10px;
 }
 
 .resultSubtitle {
