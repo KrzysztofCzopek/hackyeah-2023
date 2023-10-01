@@ -159,6 +159,15 @@ export const lines: Types.Line[] = [
     },
   },
   {
+    left: Types.CharacterType.PigeonStand,
+    speaking: "left",
+    environment: Types.Environment.Room,
+    content: {
+      text: "[Gru, Gru, Gru]!",
+      key: "pigeon2",
+    },
+  },
+  {
     left: Types.CharacterType.Capibara,
     speaking: "left",
     environment: Types.Environment.Room,
