@@ -57,7 +57,7 @@ const Game: React.FC<GameProps> = () => {
   return currentLine !== undefined ? (
     <Scene scene={currentLine} onAnswerSelected={onAnswerSelected} />
   ) : (
-    <Result result="Result!" />
+    <Result answers={committedAnswers} />
   );
 };
 
