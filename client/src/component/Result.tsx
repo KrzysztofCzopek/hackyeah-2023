@@ -95,7 +95,7 @@ const Result: React.FC<ResultProps> = ({ answers, onRestart }) => {
                   <a target="_blank" href={item.major.syllabusUrl} className={styles.url}>
                     Zobacz syllabus!
                   </a>
-                  <p className={styles.resultItemDescription}>Score: {item.ranking}</p>
+                  <p className={styles.resultItemDescription}>Mismatch rating: {item.ranking}</p>
                 </li>
               );
             })}
@@ -112,7 +112,7 @@ const Result: React.FC<ResultProps> = ({ answers, onRestart }) => {
                   <p className={styles.resultItemTitle}>
                     {item.university.name}
                   </p>
-                  <p className={styles.resultItemDescription}>Score: {item.ranking}</p>
+                  <p className={styles.resultItemDescription}>Mismatch rating: {item.ranking}</p>
                 </li>
               );
             })}
