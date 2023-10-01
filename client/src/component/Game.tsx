@@ -23,6 +23,10 @@ const Game: React.FC<GameProps> = () => {
     });
   }, [committedAnswers]);
 
+  const onRestart = () => {
+    setAnswers([]);
+  }
+
   const onStarted = () => {
     setStarted(true);
   };
@@ -61,7 +65,7 @@ const Game: React.FC<GameProps> = () => {
   return currentLine !== undefined ? (
     <Scene scene={currentLine} onAnswerSelected={onAnswerSelected} />
   ) : (
-    <Result answers={committedAnswers} />
+    <Result answers={committedAnswers} onRestart={onRestart}/>
   );
 };
 

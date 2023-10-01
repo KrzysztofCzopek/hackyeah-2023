@@ -8,9 +8,11 @@ import { universityUJ } from '@/data/universities/UJ';
 import { universityAGH } from '@/data/universities/AGH';
 import { CandidateTrait, MajorTrait } from '@/domain/Trait';
 import { Factor } from '@/domain/Factor';
+import Button from "./Button";
 
 interface ResultProps {
   answers: Array<CommittedAnswer>;
+  onRestart: () => void;
 }
 
 const committedAnswersToGameResult = (
@@ -31,7 +33,7 @@ const committedAnswersToGameResult = (
       }),
   };
 };
-const Result: React.FC<ResultProps> = ({ answers }) => {
+const Result: React.FC<ResultProps> = ({ answers, onRestart }) => {
   const audio = useAudio();
   useEffect(() => {
     audio.hallelujah?.play();
@@ -81,9 +83,9 @@ const Result: React.FC<ResultProps> = ({ answers }) => {
               return (
                 <li key={key} className={styles.resultItem}>
                   <p className={styles.resultItemTitle}>{item.major.name}</p>
-                  <p className={styles.resultItemDescription}>
-                    {item.major.syllabusUrl}
-                  </p>
+                  <a href={item.major.syllabusUrl} className={styles.url}>
+                    Zobacz syllabus!
+                  </a>
                 </li>
               );
             })}
@@ -100,13 +102,15 @@ const Result: React.FC<ResultProps> = ({ answers }) => {
                   <p className={styles.resultItemTitle}>
                     {item.university.name}
                   </p>
-                  <p className={styles.resultItemDescription}>{item.ranking}</p>
+                  <p className={styles.resultItemDescription}>Score: {item.ranking}</p>
                 </li>
               );
             })}
           </ul>
         </>
       ) : null}
+
+      <Button onClick={onRestart}>Spróbuj ponownie!</Button>
     </div>
   );
 };
