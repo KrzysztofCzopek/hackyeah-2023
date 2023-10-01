@@ -5,21 +5,23 @@ import { CandidateProfile } from './gameResultToCandidateProfile';
 
 export type FactorScore = {
   factor: Factor,
-  score: number
+  score: number | null
 }
 
 export function calculateFactorScores(
   targetTraits: FactorTraits["traits"],
-  factorsTraits: FactorTraits[]): FactorScore[] {
+  factorsTraits: FactorTraits[]
+): FactorScore[] {
   return factorsTraits.map(({ factor, traits }) => {
-    const score = traits.map((factorTrait) => {
-      const targetTrait = targetTraits.find(it => it.trait === factorTrait.trait);
-      return (targetTrait !== undefined)
-        ? targetTrait.points * factorTrait.points
-        : 0;
-    })
-      .reduce((a, b) => a + b, 0);
-    return { factor, score };
+    const traitScores = traits
+      .map((factorTrait) => {
+        const targetTrait = targetTraits.find(it => it.trait === factorTrait.trait);
+        return (targetTrait !== undefined)
+          ? targetTrait.points * factorTrait.points
+          : null;
+      })
+    if (traitScores.every(it => it === null)) return { factor, score: null }
+    else return { factor, score: traitScores.reduce((a: number, b: number | null) => a + (b || 0), 0) };
   })
 }
 
@@ -32,6 +34,7 @@ export function calculateFactorsScoresDistance(
       const toFactorScore = compareTo.find(it => it.factor === fromFactorScore.factor)
       const toScore = toFactorScore?.score || 0
       const fromScore = fromFactorScore.score
+      if (fromScore === null) return 0
       return fromScore > toScore
         ? fromScore - toScore
         : toScore - fromScore
