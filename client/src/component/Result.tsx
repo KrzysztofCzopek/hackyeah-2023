@@ -83,7 +83,7 @@ const Result: React.FC<ResultProps> = ({ answers, onRestart }) => {
               return (
                 <li key={key} className={styles.resultItem}>
                   <p className={styles.resultItemTitle}>{item.major.name}</p>
-                  <a href={item.major.syllabusUrl} className={styles.url}>
+                  <a target="_blank" href={item.major.syllabusUrl} className={styles.url}>
                     Zobacz syllabus!
                   </a>
                 </li>
