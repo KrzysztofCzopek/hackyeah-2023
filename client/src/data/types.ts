@@ -1,7 +1,12 @@
 export enum CharacterType {
-  Frog = "Frog",
-  Cat = "Cat",
-  Dog = "Dog"
+    Frog = "Frog",
+    Cat = "Cat",
+    Dog = "Dog",
+    Note = "Note",
+    PigeonStand = "PigeonStand",
+    PigeonFly = "PigeonFly",
+    Boberek = "Boberek",
+    Capibara = "Capibara"
 }
 
 export enum Environment {
@@ -40,15 +45,10 @@ export interface Question extends Narration {
     answers: Answer[];
 }
 
-export interface Character {
-    type: CharacterType;
-    mood: Mood;
-}
-
 export interface Line {
     speaking?: "left" | "right"
-    left?: Character;
-    right?: Character;
+    left?: CharacterType;
+    right?: CharacterType;
     environment?: Environment;
     content: Narration | Question;
 }

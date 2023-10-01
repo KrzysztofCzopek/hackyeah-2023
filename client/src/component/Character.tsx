@@ -6,7 +6,7 @@ import { images } from "@/data/characters";
 import Image from "next/image";
 
 interface CharacterProps {
-  character?: Types.Character;
+  character?: Types.CharacterType;
   flip?: boolean;
 }
 
@@ -29,7 +29,7 @@ const Character: React.FC<CharacterProps> = ({
         });
         setDisplayedCharacter(null);
       } else {
-        setDisplayedCharacter(character.type);
+        setDisplayedCharacter(character);
         await new Promise((resolve) => {
           timeoutId = setTimeout(resolve, 100);
         });
