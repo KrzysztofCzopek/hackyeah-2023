@@ -20,7 +20,9 @@ export function createRecommendation(
   const profile = gameResultToCandidateProfile(gameResult, responsesTraits)
   const profileWithScores = candidateProfileWithFactorScores(profile, factorsTraits)
   const universitiesWithScores = universities.map(it => universityWithFactorScores(it, factorsTraits))
-  const rankedUniversities = universitiesWithScores.map(it => calculateUniversityRanking(it, profileWithScores))
+  const rankedUniversities = universitiesWithScores.map(it => 
+    calculateUniversityRanking(gameResult.location, it, profileWithScores)
+  )
   const rankedMajors = rankedUniversities.flatMap(it => it.majorRankings)
   const topUniversities = rankedUniversities
     .sort((a, b) => a.ranking - b.ranking)
