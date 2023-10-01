@@ -142,13 +142,6 @@ export const lines: Types.Line[] = [
       key: "before-sleep-2",
     },
   },
-
-  {
-    content: {
-      text: "...",
-      key: "before-sleep-3",
-    },
-  },
   {
     right: Types.CharacterType.PigeonFly,
     speaking: "right",

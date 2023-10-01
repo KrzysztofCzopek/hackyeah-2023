@@ -7,6 +7,7 @@ const fallback = {
   button: null,
   hallelujah: null,
   sounds: null,
+  intro: null,
 };
 
 export const useAudio = () => {
@@ -22,7 +23,7 @@ export const useAudio = () => {
 
     const soundtrack = new Howl({
       src: ["/audio/gameplay.mp3"],
-      volume: 0.1,
+      volume: 0.5,
     });
 
     const button = new Howl({
@@ -30,8 +31,14 @@ export const useAudio = () => {
       volume: 0.1,
     });
 
+    const intro = new Howl({
+      src: ["/audio/intro.mp3"],
+      volume: 0.4,
+    });
+
     const hallelujah = new Howl({
-      src: ["/audio/hallelujah.mp3"]
+      src: ["/audio/hallelujah.mp3"],
+      volume: 0.5,
     });
 
     const sounds: Record<CharacterType, Howl> = {
@@ -41,13 +48,13 @@ export const useAudio = () => {
       [CharacterType.Dog]: new Howl({ src: "/audio/dog.mp3" }),
       [CharacterType.Boberek]: new Howl({
         src: "/audio/beaver.mp3",
-        volume: 0.1,
+        volume: 0.2,
       }),
       [CharacterType.PigeonStand]: new Howl({ src: "/audio/owl.mp3" }),
       [CharacterType.PigeonFly]: new Howl({ src: "/audio/owl.mp3" }),
       [CharacterType.Capibara]: new Howl({
         src: "/audio/capybara.mp3",
-        volume: 0.1,
+        volume: 0.2,
       }),
       [CharacterType.Diplodok]: new Howl({ src: "/audio/dinosaur.mp3" }),
     };
@@ -56,6 +63,7 @@ export const useAudio = () => {
       button,
       hallelujah,
       sounds,
+      intro,
     };
   }, [loaded]);
 };

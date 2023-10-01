@@ -31,14 +31,20 @@ const Game: React.FC<GameProps> = () => {
     setStarted(true);
   };
 
-  const { soundtrack } = useAudio();
+  const { soundtrack, intro } = useAudio();
   useEffect(() => {
-    soundtrack?.play();
+    if (isStarted) {
+      intro?.stop();
+      soundtrack?.play();
+    } else {
+      intro?.play();
+    }
 
     return () => {
       soundtrack?.stop();
+      intro?.stop();
     }
-  }, [soundtrack]);
+  }, [soundtrack, isStarted]);
 
   const onAnswerSelected = (answer: Answer | null = null) => {
     if (!currentLine) {
