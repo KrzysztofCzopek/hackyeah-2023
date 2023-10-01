@@ -22,8 +22,22 @@ export function createRecommendation(
   const universitiesWithScores = universities.map(it => universityWithFactorScores(it, factorsTraits))
   const rankedUniversities = universitiesWithScores.map(it => calculateUniversityRanking(it, profileWithScores))
   const rankedMajors = rankedUniversities.flatMap(it => it.majorRankings)
-  const topUniversities = rankedUniversities.sort((a, b) => a.ranking - b.ranking).slice(0, 10)
-  const topMajors = rankedMajors.sort((a, b) => a.ranking - b.ranking).slice(0, 10)
+  const topUniversities = rankedUniversities
+    .sort((a, b) => a.ranking - b.ranking)
+    .slice(0, Math.min(rankedUniversities.length, 10))
+  const topMajors = rankedMajors
+    .sort((a, b) => a.ranking - b.ranking)
+    .slice(0, Math.min(rankedMajors.length, 10))
+  // console.dir({
+  //   scores: {
+  //     profile: profileWithScores,
+  //     universities: universitiesWithScores,
+  //   },
+  //   ranked: {
+  //     universities: rankedUniversities,
+  //     majors: rankedMajors
+  //   }
+  // }, { depth: null })
   return {
     topUniversities,
     topMajors

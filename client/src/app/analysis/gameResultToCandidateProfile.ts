@@ -13,10 +13,10 @@ export type CandidateProfile = {
 export function gameResultToCandidateProfile(
   gameResult: GameResult,
   responsesTraits: ResponseTraits[]
-  ): CandidateProfile {
-    return {
-      location: gameResult.location,
-      traits: gameResult.responses.flatMap((response) => {
+): CandidateProfile {
+  return {
+    location: gameResult.location,
+    traits: gameResult.responses.flatMap((response) => {
       const responseTraits = responsesTraits.find(it => compareResponses(it.response, response))
       return responseTraits?.traits || []
     })
