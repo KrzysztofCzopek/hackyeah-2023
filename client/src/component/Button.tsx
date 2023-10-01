@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
     const audio = useAudio();
     const onClick = (ev: React.MouseEvent<HTMLButtonElement>) => {
         props.onClick?.(ev);
-        audio.button.play();
+        audio.button?.play();
     }
     return (
         <button{...props} className={`${styles.button} ${props.className}`} onClick={onClick}>

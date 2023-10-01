@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { lines } from "@/data/first-scene";
 
@@ -23,7 +23,7 @@ const Game: React.FC<GameProps> = () => {
   }, [committedAnswers]);
 
   useEffect(() => {
-    audio.soundtrack.play();
+    audio.soundtrack?.play();
   }, []);
 
   const onAnswerSelected = (answer: Answer | null = null) => {

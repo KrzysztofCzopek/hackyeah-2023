@@ -1,11 +1,21 @@
-"use client";
-
 import { Audio, AudioType } from "ts-audio";
 import { CharacterType } from "./types";
 import { useMemo } from "react";
 
+
+const fallback = {
+  soundtrack: null,
+  button: null,
+  hallelujah: null,
+  sounds: null,
+};
+
 export const useAudio = () => {
   return useMemo(() => {
+    if (typeof window === "undefined") {
+      return fallback;
+    }
+
     const soundtrack = Audio({
       file: "/audio/gameplay.mp3",
       loop: true,

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Character.module.css";
 import * as Types from "@/data/types";
 import { images } from "@/data/characters";
@@ -35,7 +35,7 @@ const Character: React.FC<CharacterProps> = ({
         await new Promise((resolve) => {
           timeoutId = setTimeout(resolve, 100);
         });
-        audio.sounds[character].play();
+        audio.sounds?.[character]?.play();
         setHidden(false);
       }
       return () => {

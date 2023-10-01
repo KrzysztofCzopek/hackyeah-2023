@@ -9,7 +9,7 @@ interface ResultProps {
 const Result: React.FC<ResultProps> = ({ result }) => {
     const audio = useAudio();
     useEffect(() => {
-        audio.hallelujah.play();
+        audio.hallelujah?.play();
     }, [audio.hallelujah]);
     return (
         <div className={styles.resultContainer}>
