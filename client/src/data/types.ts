@@ -6,7 +6,8 @@ export enum CharacterType {
     PigeonStand = "PigeonStand",
     PigeonFly = "PigeonFly",
     Boberek = "Boberek",
-    Capibara = "Capibara"
+    Capibara = "Capibara",
+    Diplodok = "Diplodok"
 }
 
 export enum Environment {

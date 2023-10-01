@@ -1,9 +1,9 @@
-import React, { use, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./Question.module.css";
 import * as Types from "@/data/types";
 import Button from "./Button";
 import Answer from "./Answer";
-import Typewriter, { TypewriterClass } from "typewriter-effect";
+import Typewriter from "typewriter-effect";
 
 interface QuestionProps {
   question: Types.Question;
