@@ -12,6 +12,31 @@ import Start from "./Start";
 
 interface GameProps {}
 
+const useTheTrack = (environment: Types.Environment, started: boolean, isFinished: boolean) => {
+  const sound = useAudio();
+  const tracks = useMemo(() => [
+    sound.soundtrack!,
+    sound.intro!,
+    sound.outro!,
+    sound.party!,
+  ], [sound.intro, sound.outro, sound.party, sound.soundtrack]);
+
+  return useMemo(() => {
+    let result;
+    if (environment === Types.Environment.Party) {
+      result = sound.party;
+    } else if (isFinished) {
+      result = sound.outro;
+    } else if (started) {
+      result = sound.intro;
+    } else if (result === undefined) {
+      result = sound.soundtrack!;
+    }
+  
+    return [result, tracks] as const;
+  }, [environment, isFinished, sound.intro, sound.outro, sound.party, sound.soundtrack, started, tracks])
+}
+
 const Game: React.FC<GameProps> = () => {
   const [committedAnswers, setAnswers] = useState<Array<CommittedAnswer>>([]);
   const [isStarted, setStarted] = useState<boolean>(false);
@@ -33,29 +58,23 @@ const Game: React.FC<GameProps> = () => {
   };
 
   const environment = currentLine?.environment ?? Types.Environment.Room;
-  const { soundtrack, intro, party } = useAudio();
+  const [targetTrack, tracks] = useTheTrack(environment, isStarted, currentLine === undefined);
+
   useEffect(() => {
-    if (environment === Types.Environment.Party) {
-      soundtrack?.stop();
-      intro?.stop();
-      party?.play();
-    } else {
-      party?.stop();
-      if (isStarted) {
-        intro?.stop();
-        soundtrack?.play();
+    tracks.forEach((track) => {
+      if (track === targetTrack) {
+        track?.play();
       } else {
-        intro?.play();
-        soundtrack?.stop();
+        track?.stop();
       }
-    }
+    });
 
     return () => {
-      soundtrack?.stop();
-      intro?.stop();
-      party?.stop();
-    }
-  }, [soundtrack, isStarted, intro, environment, party]);
+      tracks.forEach((track) => {
+        track?.stop();
+      });
+    };
+  }, [targetTrack, tracks]);
 
   const onAnswerSelected = (answer: Answer | null = null) => {
     if (!currentLine) {
