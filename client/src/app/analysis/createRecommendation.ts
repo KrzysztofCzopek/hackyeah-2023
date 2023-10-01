@@ -25,10 +25,10 @@ export function createRecommendation(
   )
   const rankedMajors = rankedUniversities.flatMap(it => it.majorRankings)
   const topUniversities = rankedUniversities
-    .sort((a, b) => a.ranking - b.ranking)
+    .sort((a, b) => b.ranking - a.ranking)
     .slice(0, Math.min(rankedUniversities.length, 10))
   const topMajors = rankedMajors
-    .sort((a, b) => a.ranking - b.ranking)
+    .sort((a, b) => b.ranking - a.ranking)
     .slice(0, Math.min(rankedMajors.length, 10))
   // console.dir({
   //   scores: {

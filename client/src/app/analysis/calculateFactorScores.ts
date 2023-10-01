@@ -32,15 +32,17 @@ export function calculateFactorsScoresDistance(
 ) {
   return compareFrom
     .map(fromFactorScore => {
-      const toFactorScore = compareTo.find(it => it.factor === fromFactorScore.factor)
-      const toScore = toFactorScore?.score || 0
+      const toScore = compareTo
+        .filter(it => it.factor === fromFactorScore.factor)
+        .map(it => it.score)
+        .reduce((a: number, b: number | null) => a + (b || 0), 0)
       const fromScore = fromFactorScore.score
       if (fromScore === null) return 0
       return fromScore > toScore
         ? fromScore - toScore
         : toScore - fromScore
     })
-    .reduce((a, b) => a + b, 0)
+    .reduce((a, b) => a - b, 0)
 }
 
 

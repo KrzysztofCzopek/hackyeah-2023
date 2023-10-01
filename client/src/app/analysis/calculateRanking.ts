@@ -42,7 +42,9 @@ export function calculateUniversityRanking(
     ...universityWithScores.university,
     majors: universityWithScores.university.majors.map(it => it.major)
   };
-  const majorRankings = universityWithScores.university.majors.map(it => calculateMajorRanking(university, it, profileWithScores));
+  const majorRankings = universityWithScores.university.majors.map(it => 
+    calculateMajorRanking(university, it, profileWithScores)
+  );
   const locationDistance = Math.sqrt(
     Math.pow(userLocation.lat - university.location.lat, 2) +
     Math.pow(userLocation.long - university.location.long, 2)
