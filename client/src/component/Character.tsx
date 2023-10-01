@@ -9,11 +9,13 @@ import { useAudio } from "@/data/audio";
 interface CharacterProps {
   character?: Types.CharacterType;
   flip?: boolean;
+  speaks?: boolean;
 }
 
 const Character: React.FC<CharacterProps> = ({
   character,
   flip = false,
+  speaks = false,
 }: CharacterProps) => {
   const [displayedCharacter, setDisplayedCharacter] =
     useState<Types.CharacterType | null>(null);
@@ -35,28 +37,31 @@ const Character: React.FC<CharacterProps> = ({
         await new Promise((resolve) => {
           timeoutId = setTimeout(resolve, 100);
         });
-        console.log(audio.sounds?.[character])
+        console.log(audio.sounds?.[character]);
         audio.sounds?.[character]?.play();
         setHidden(false);
       }
       return () => {
         clearTimeout(timeoutId);
-      }
+      };
     })();
   }, [audio.sounds, character]);
 
   return displayedCharacter !== null ? (
-    <div className={styles.container} data-flip={flip}>
-      <Image
-        data-shift={hidden}
-        data-flip={flip}
-        className={styles.image}
-        width={256}
-        height={256}
-        alt={displayedCharacter}
-        unoptimized
-        src={images[displayedCharacter]}
-      />
+    <div className={styles.container} data-flip={flip} data-speaks={speaks}>
+      <div data-shift={hidden} className={styles.hide}>
+        <div className={styles.shaker}>
+          <Image
+            data-flip={flip}
+            className={styles.image}
+            width={256}
+            height={256}
+            alt={displayedCharacter}
+            unoptimized
+            src={images[displayedCharacter]}
+          />
+        </div>
+      </div>
     </div>
   ) : null;
 };

@@ -1,16 +1,36 @@
 .container[data-flip="true"] {
-    transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.container[data-speaks] .shaker {
+  animation: linear 250ms speak infinite;
 }
 
 .image {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+}
 
+.hide {
   transition: 300ms linear all;
   transform: translateX(0);
 }
 
-.image[data-shift="true"] {
-    transform: translateX(-500px);
+.hide[data-shift="true"] {
+  transform: translateX(-500px);
+}
+
+@keyframes speak {
+  0% {
+    transform: translateY(-1%) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(2%) rotate(2deg);
+  }
+
+  100% {
+    transform: translateY(-1%) rotate(-2deg);
+  }
 }
