@@ -51,7 +51,7 @@ export const useAudio = () => {
 
     const hallelujah = new Howl({
       src: ["/audio/hallelujah.mp3"],
-      volume: 0.5,
+      volume: 0.3,
     });
 
     const sounds: Record<CharacterType, Howl> = {
