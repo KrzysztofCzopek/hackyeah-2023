@@ -93,7 +93,7 @@ const Result: React.FC<ResultProps> = ({ answers, onRestart }) => {
                 <li key={key} className={styles.resultItem}>
                   <p className={styles.resultItemTitle}>{item.major.name}</p>
                   <a target="_blank" href={item.major.syllabusUrl} className={styles.url}>
-                    Zobacz syllabus!
+                    Zobacz sylabus!
                   </a>
                   <p className={styles.resultItemDescription}>Mismatch rating: {item.ranking}</p>
                 </li>
