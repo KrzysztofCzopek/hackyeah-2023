@@ -5,6 +5,7 @@ import { lines } from "@/data/first-scene";
 import { Answer, CommittedAnswer } from "@/data/types";
 import React, { useEffect, useMemo, useState } from "react";
 import { Scene } from "./Scene";
+import * as Types from "@/data/types";
 import { useAudio } from "@/data/audio";
 import Result from "./Result";
 import Start from "./Start";
@@ -31,20 +32,30 @@ const Game: React.FC<GameProps> = () => {
     setStarted(true);
   };
 
-  const { soundtrack, intro } = useAudio();
+  const environment = currentLine?.environment ?? Types.Environment.Room;
+  const { soundtrack, intro, party } = useAudio();
   useEffect(() => {
-    if (isStarted) {
+    if (environment === Types.Environment.Party) {
+      soundtrack?.stop();
       intro?.stop();
-      soundtrack?.play();
+      party?.play();
     } else {
-      intro?.play();
+      party?.stop();
+      if (isStarted) {
+        intro?.stop();
+        soundtrack?.play();
+      } else {
+        intro?.play();
+        soundtrack?.stop();
+      }
     }
 
     return () => {
       soundtrack?.stop();
       intro?.stop();
+      party?.stop();
     }
-  }, [soundtrack, isStarted]);
+  }, [soundtrack, isStarted, intro, environment, party]);
 
   const onAnswerSelected = (answer: Answer | null = null) => {
     if (!currentLine) {

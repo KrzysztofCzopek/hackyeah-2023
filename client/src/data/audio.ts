@@ -8,6 +8,8 @@ const fallback = {
   hallelujah: null,
   sounds: null,
   intro: null,
+  party: null,
+  outro: null,
 };
 
 export const useAudio = () => {
@@ -33,6 +35,17 @@ export const useAudio = () => {
 
     const intro = new Howl({
       src: ["/audio/intro.mp3"],
+      volume: 0.4,
+    });
+
+    const outro = new Howl({
+      src: ["/audio/outro.mp3"],
+      volume: 0.4,
+    });
+
+    const party = new Howl({
+      src: ["/audio/party.mp3"],
+      loop: true,
       volume: 0.4,
     });
 
@@ -64,6 +77,8 @@ export const useAudio = () => {
       hallelujah,
       sounds,
       intro,
+      outro,
+      party,
     };
   }, [loaded]);
 };
