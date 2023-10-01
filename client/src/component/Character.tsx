@@ -4,6 +4,7 @@ import * as Types from "@/data/types";
 import { images } from "@/data/characters";
 
 import Image from "next/image";
+import { sounds } from "@/data/audio";
 
 interface CharacterProps {
   character?: Types.CharacterType;
@@ -33,6 +34,7 @@ const Character: React.FC<CharacterProps> = ({
         await new Promise((resolve) => {
           timeoutId = setTimeout(resolve, 100);
         });
+        sounds[character].play();
         setHidden(false);
       }
       return () => {

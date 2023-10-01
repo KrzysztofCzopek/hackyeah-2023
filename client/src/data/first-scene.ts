@@ -195,6 +195,7 @@ export const lines: Types.Line[] = [
   },
   {
     right: Types.CharacterType.Boberek,
+    left: Types.CharacterType.Frog,
     speaking: "right",
     content: {
       key: "lol",

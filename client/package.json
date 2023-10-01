@@ -13,6 +13,7 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "ts-audio": "^0.7.4",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
