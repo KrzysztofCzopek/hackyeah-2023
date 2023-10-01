@@ -27,10 +27,10 @@ const useTheTrack = (environment: Types.Environment, started: boolean, isFinishe
       result = sound.party;
     } else if (isFinished) {
       result = sound.outro;
-    } else if (started) {
+    } else if (!started) {
       result = sound.intro;
-    } else if (result === undefined) {
-      result = sound.soundtrack!;
+    } else {
+      result = sound.soundtrack;
     }
   
     return [result, tracks] as const;
