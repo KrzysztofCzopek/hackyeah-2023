@@ -27,4 +27,5 @@ export const sounds: Record<CharacterType, AudioType> = {
   [CharacterType.PigeonStand]: Audio({ file: "/audio/owl.mp3" }),
   [CharacterType.PigeonFly]: Audio({ file: "/audio/owl.mp3" }),
   [CharacterType.Capibara]: Audio({ file: "/audio/capybara.mp3", volume: 0.1 }),
+    [CharacterType.Diplodok]: Audio({ file: "/audio/dinosaur.mp3" }),
 };

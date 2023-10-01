@@ -9,4 +9,5 @@ export const images: Record<CharacterType, string> = {
     [CharacterType.PigeonFly]: require("../../public/characters/pigeon_fly.png"),
     [CharacterType.Note]: require("../../public/characters/note.png"),
     [CharacterType.Capibara]: require("../../public/characters/capibara.png"),
+    [CharacterType.Diplodok]: require("../../public/characters/diplodok.png"),
 };

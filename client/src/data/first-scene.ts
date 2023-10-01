@@ -194,6 +194,15 @@ export const lines: Types.Line[] = [
     },
   },
   {
+    left: Types.CharacterType.Diplodok,
+    speaking: "left",
+    environment: Types.Environment.Room,
+    content: {
+      text: "A ja em Dinozaur!",
+      key: "dino",
+    },
+  },
+  {
     right: Types.CharacterType.Boberek,
     left: Types.CharacterType.Frog,
     speaking: "right",

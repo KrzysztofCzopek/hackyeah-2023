@@ -3,6 +3,15 @@
   position: relative;
 }
 
+.scene[data-environment] {
+  background-size: cover;
+  background-position: center;
+}
+
+.scene[data-environment="room"] {
+  background: url("/room.png") repeat-x;
+}
+
 .actors {
   position: absolute;
   display: flex;

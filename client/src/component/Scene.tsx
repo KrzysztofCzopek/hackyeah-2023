@@ -13,7 +13,7 @@ interface SceneProps {
 
 export const Scene: React.FC<SceneProps> = ({ scene, onAnswerSelected }) => {
   return (
-    <article className={styles.scene}>
+    <article className={styles.scene} data-environment={scene.environment}>
       <div className={styles.actors}>
         <div className={styles.leftActor}>
           <Character character={scene.left} />
