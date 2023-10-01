@@ -4,6 +4,10 @@ import { useAudio } from "@/data/audio";
 import { CommittedAnswer, isQuestion } from "@/data/types";
 import { createRecommendation } from "@/app/analysis/createRecommendation";
 import { GameResult } from "@/domain/Game";
+import { universityUJ } from '@/data/universities/UJ';
+import { universityAGH } from '@/data/universities/AGH';
+import { CandidateTrait, MajorTrait } from '@/domain/Trait';
+import { Factor } from '@/domain/Factor';
 
 interface ResultProps {
   answers: Array<CommittedAnswer>;
@@ -36,9 +40,33 @@ const Result: React.FC<ResultProps> = ({ answers }) => {
   const result = useMemo(() => {
     return createRecommendation(
       committedAnswersToGameResult(answers),
-      [],
-      [],
-      []
+      [ universityUJ, universityAGH ],
+      [ 
+        { 
+          response: { answer: 'capibara', question: 'oswietlenie-odpowiedz' },
+          traits: [{ trait: CandidateTrait.AFFINITY_HUMANITIES, points: 1}]
+        },
+        { 
+          response: { answer: 'pies', question: 'oswietlenie-odpowiedz' },
+          traits: [{ trait: CandidateTrait.AFFINITY_SCIENCE, points: 1}]
+        }
+      ],
+      [
+        {
+          factor: Factor.HUMANITIES,
+          traits: [
+            { trait: CandidateTrait.AFFINITY_HUMANITIES, points: 1 },
+            { trait: MajorTrait.AFFINITY_HUMANITIES, points: 1 },
+          ]
+        },
+        {
+          factor: Factor.SCIENCE,
+          traits: [
+            { trait: CandidateTrait.AFFINITY_SCIENCE, points: 1 },
+            { trait: MajorTrait.AFFINITY_SCIENCE, points: 1 },
+          ]
+        }
+      ]
     );
   }, [answers]);
 

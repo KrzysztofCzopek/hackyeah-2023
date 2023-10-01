@@ -158,13 +158,14 @@ export const lines: Types.Line[] = [
       key: "pigeon",
     },
   },
+  
   {
     left: Types.CharacterType.PigeonStand,
     speaking: "left",
     environment: Types.Environment.Room,
     content: {
-      text: "[Gru, Gru, Gru]!",
-      key: "pigeon2",
+      text: "Witaj przybyszu. Jestem Sowa (tak naprawdę to gołąb). Symbol mądrości. Chciałbym zabrać Cię w podróż po mojej krainie. Panuje w niej aktualnie lekki chaos. Jednak mam nadzieje, że pomożesz nam się z tym uporać. Powodzenia!",
+      key: "pidgeon-wstep",
     },
   },
   {
@@ -172,23 +173,58 @@ export const lines: Types.Line[] = [
     speaking: "left",
     environment: Types.Environment.Room,
     content: {
-      text: "Hej, z naszym przyjacielem psem sprzeczamy się kto powinien zadbać o oświetlenie naszej imprezy. Pies zgłosił się pierwszy no wiesz, ale ja jako kot mam lepszy wzrok więc na pewno sobie lepiej z tym poradzę. Co o tym myślisz? Kto powinien się tym zająć?",
-      key: "oswietlenie-glowne-pytanie",
+      text: "Pies słuchaj, to ja powinienem wieszać oświetlenie bo to ja się lepiej znam!!! Jestem bardziej zorientowany na sztukę i estetykę, więc mogę stworzyć piękne oświetlenie, które będzie wyglądać wspaniale.",
+      key: "oswietlenie-1",
     },
   },
   {
+    left: Types.CharacterType.Capibara,
     right: Types.CharacterType.Dog,
     speaking: "right",
     content: {
-      text: "Hał Hał, wybierz mnie!!! Jestem pies ja umiem szczekać!!",
-      key: "oswietlenie-pies-odpowiedz",
+      text: "Może i tak. Ale przecież na przyjęciu będzie wiele technicznych detali do ogarnięcia. Ja jestem bardziej zorientowany na praktyczne rozwiązania i mogę zadbać o to, żeby wszystko działało sprawnie.",
+      key: "oswietlenie-2",
+    },
+  },
+  {
+    left: Types.CharacterType.Capibara,
+    right: Types.CharacterType.Dog,
+    speaking: "left",
+    content: {
+      text: "Hmm, masz rację, piesie. Ale moja umiejętność wyrażania siebie może przynieść wyjątkową atmosferę.",
+      key: "oswietlenie-3",
+    },
+  },
+  {
+    left: Types.CharacterType.Capibara,
+    right: Types.CharacterType.Dog,
+    speaking: "right",
+    content: {
+      text: "To prawda, ale pamiętaj, że równie ważne jest zrozumienie technicznych aspektów.",
+      key: "oswietlenie-4"
+    },
+  },
+  {
+    right: Types.CharacterType.PigeonFly,
+    speaking: "left",
+    content: {
+      text: "",
+      key: "oswietlenie-5"
+    },
+  },
+  {
+    right: Types.CharacterType.PigeonStand,
+    speaking: "left",
+    content: {
+      text: "Może nasz gość zdecyduje kto zawiesi oświetlenie, co? ",
+      key: "oswietlenie-6"
     },
   },
   {
     left: Types.CharacterType.Capibara,
     right: Types.CharacterType.Dog,
     content: {
-      key: "oswietlenie-capibara-odpowiedz",
+      key: "oswietlenie-odpowiedz",
       text: "Kto powinien zająć się oświetleniem?",
       answers: [
         {
@@ -198,34 +234,6 @@ export const lines: Types.Line[] = [
         {
           text: "Kapibara",
           key: "capibara",
-        },
-      ],
-    },
-  },
-  {
-    left: Types.CharacterType.Diplodok,
-    speaking: "left",
-    environment: Types.Environment.Room,
-    content: {
-      text: "A ja em Dinozaur!",
-      key: "dino",
-    },
-  },
-  {
-    right: Types.CharacterType.Boberek,
-    left: Types.CharacterType.Frog,
-    speaking: "right",
-    content: {
-      key: "lol",
-      text: "Empty!?",
-      answers: [
-        {
-          text: "lol",
-          key: "pies",
-        },
-        {
-          text: "lol2",
-          key: "kot",
         },
       ],
     },
