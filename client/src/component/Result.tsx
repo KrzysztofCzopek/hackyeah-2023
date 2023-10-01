@@ -18,11 +18,12 @@ interface ResultProps {
 const committedAnswersToGameResult = (
   answers: Array<CommittedAnswer>
 ): GameResult => {
+  const [lat, long] = answers
+    .find(it => it.lineKey?.startsWith('city'))!
+    .answerKey!.split(";")
+    .map(it => Number.parseFloat(it))
   return {
-    location: {
-      lat: 0,
-      long: 0,
-    },
+    location: { lat, long },
     responses: answers
       .filter(({ answerKey }) => answerKey !== null)
       .map((answer) => {

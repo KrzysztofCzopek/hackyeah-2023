@@ -44,74 +44,74 @@ export const lines: Types.Line[] = [
 
       answers: [
         {
-          key: "Greater",
+          key: "city;Greater",
           text: "Greater Poland Voivodeship",
           answers: [
             {
-              key: "Poznan",
+              key: "52.409538;16.931992",
               text: "Poznań",
             },
             {
-              key: "Kalisz",
+              key: "51.76109;18.09102",
               text: "Kalisz",
             },
             {
-              key: "Konin",
+              key: "52.22338;18.25121",
               text: "Konin",
             },
           ],
         },
         {
           text: "Masovian Voivodeship",
-          key: "Masovian",
+          key: "city;Masovian",
           answers: [
             {
-              key: "Warsaw",
+              key: "52.22977;21.01178",
               text: "Warsaw",
             },
             {
-              key: "Radom",
+              key: "51.25;22.56667",
               text: "Lublin",
             },
             {
-              key: "Plock",
+              key: "52.54682;19.70638",
               text: "Płock",
             },
           ],
         },
         {
           text: "Silesian Voivodeship",
-          key: "Silesian",
+          key: "city;Silesian",
           answers: [
             {
+              key: "50.25841;19.02754",
               text: "Katowice",
-              key: "Katowice",
             },
             {
+              key: "50.29761;18.67658",
               text: "Gliwice",
-              key: "Gliwice",
             },
             {
+              key: "50.28682;19.10385",
               text: "Sosnowiec",
-              key: "Sosnowiec",
             },
             // Add more cities with universities here
           ],
         },
         {
           text: "Lesser Poland Voivodeship",
-          key: "Lesser",
+          key: "city;Lesser",
           answers: [
             {
-              key: "Krakow",
+              key: "50.06143;19.93658",
               text: "Kraków",
             },
             {
-              key: "Tarnow",
+              key: "50.01381;20.98698",
               text: "Tarnów",
             },
             {
-              key: "Nowy Sącz",
+              key: "49.62177;20.69705",
               text: "Nowy Sącz",
             },
           ],
