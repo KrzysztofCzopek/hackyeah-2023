@@ -5,8 +5,8 @@
   "scope": "/",
   "id": "/?game=1",
   "start_url": "/?game=1",
-  "name": "Animality",
-  "short_name": "Animal",
+  "name": "Rekrutozaur",
+  "short_name": "Rekrutozaur",
   "icons": [
     {
       "src": "/icon-192x192.png",
