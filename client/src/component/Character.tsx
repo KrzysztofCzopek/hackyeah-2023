@@ -10,12 +10,14 @@ interface CharacterProps {
   character?: Types.CharacterType;
   flip?: boolean;
   speaks?: boolean;
+  party?: boolean;
 }
 
 const Character: React.FC<CharacterProps> = ({
   character,
   flip = false,
   speaks = false,
+  party = false,
 }: CharacterProps) => {
   const [displayedCharacter, setDisplayedCharacter] =
     useState<Types.CharacterType | null>(null);
@@ -48,7 +50,7 @@ const Character: React.FC<CharacterProps> = ({
   }, [audio.sounds, character]);
 
   return displayedCharacter !== null ? (
-    <div className={styles.container} data-flip={flip} data-speaks={speaks}>
+    <div className={styles.container} data-flip={flip} data-speaks={speaks} data-party={party} data-animal={displayedCharacter}>
       <div data-shift={hidden} className={styles.hide}>
         <div className={styles.shaker}>
           <Image

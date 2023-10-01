@@ -10,13 +10,15 @@ export enum CharacterType {
     Diplodok = "Diplodok"
 }
 
+
 export enum Environment {
   Room = 'room',
   Street = 'street',
   Park = 'park',
   Forest = 'forest',
-  Meadow = "Meadow",
-  Desert = "Desert"
+  Meadow = "meadow",
+  Desert = "desert",
+  Party = "party"
 }
 
 export enum Mood {

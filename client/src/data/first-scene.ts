@@ -171,7 +171,7 @@ export const lines: Types.Line[] = [
   {
     left: Types.CharacterType.Capibara,
     speaking: "left",
-    environment: Types.Environment.Room,
+    environment: Types.Environment.Meadow,
     content: {
       text: "Pies słuchaj, to ja powinienem wieszać oświetlenie bo to ja się lepiej znam!!! Jestem bardziej zorientowany na sztukę i estetykę, więc mogę stworzyć piękne oświetlenie, które będzie wyglądać wspaniale.",
       key: "oswietlenie-1",
@@ -180,6 +180,7 @@ export const lines: Types.Line[] = [
   {
     left: Types.CharacterType.Capibara,
     right: Types.CharacterType.Dog,
+    environment: Types.Environment.Meadow,
     speaking: "right",
     content: {
       text: "Może i tak. Ale przecież na przyjęciu będzie wiele technicznych detali do ogarnięcia. Ja jestem bardziej zorientowany na praktyczne rozwiązania i mogę zadbać o to, żeby wszystko działało sprawnie.",
@@ -189,6 +190,7 @@ export const lines: Types.Line[] = [
   {
     left: Types.CharacterType.Capibara,
     right: Types.CharacterType.Dog,
+    environment: Types.Environment.Meadow,
     speaking: "left",
     content: {
       text: "Hmm, masz rację, piesie. Ale moja umiejętność wyrażania siebie może przynieść wyjątkową atmosferę.",
@@ -198,6 +200,7 @@ export const lines: Types.Line[] = [
   {
     left: Types.CharacterType.Capibara,
     right: Types.CharacterType.Dog,
+    environment: Types.Environment.Meadow,
     speaking: "right",
     content: {
       text: "To prawda, ale pamiętaj, że równie ważne jest zrozumienie technicznych aspektów.",
@@ -206,6 +209,7 @@ export const lines: Types.Line[] = [
   },
   {
     right: Types.CharacterType.PigeonFly,
+    environment: Types.Environment.Meadow,
     speaking: "left",
     content: {
       text: "",
@@ -214,6 +218,7 @@ export const lines: Types.Line[] = [
   },
   {
     right: Types.CharacterType.PigeonStand,
+    environment: Types.Environment.Meadow,
     speaking: "left",
     content: {
       text: "Może nasz gość zdecyduje kto zawiesi oświetlenie, co? ",
@@ -223,6 +228,7 @@ export const lines: Types.Line[] = [
   {
     left: Types.CharacterType.Capibara,
     right: Types.CharacterType.Dog,
+    environment: Types.Environment.Meadow,
     content: {
       key: "oswietlenie-odpowiedz",
       text: "Kto powinien zająć się oświetleniem?",
@@ -236,6 +242,13 @@ export const lines: Types.Line[] = [
           key: "capibara",
         },
       ],
+    },
+  },
+  {
+    environment: Types.Environment.Party,
+    content: {
+      key: "party",
+      text: "A teraz zabawa!!!",
     },
   },
 ];

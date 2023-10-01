@@ -30,6 +30,10 @@ const Game: React.FC<GameProps> = () => {
   const { soundtrack } = useAudio();
   useEffect(() => {
     soundtrack?.play();
+
+    return () => {
+      soundtrack?.stop();
+    }
   }, [soundtrack]);
 
   const onAnswerSelected = (answer: Answer | null = null) => {

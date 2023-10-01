@@ -2,8 +2,43 @@
   transform: scaleX(-1);
 }
 
-.container[data-speaks] .shaker {
+.container[data-speaks="true"] .shaker {
   animation: linear 250ms speak infinite;
+}
+
+.container[data-party="true"] .shaker {
+  animation: linear 1500ms party infinite;
+}
+
+.container[data-animal="dog"] .shaker {
+  animation-delay: 1010ms;
+}
+
+.container[data-animal="Boberek"] .shaker {
+  animation-delay: 1020ms;
+}
+
+.container[data-animal="Capibara"] .shaker {
+  animation-delay: 1300ms;
+}
+
+.container[data-animal="mouse"] .shaker {
+  animation-delay: 1400ms;
+}
+
+.container[data-animal="Diplodok"] .shaker {
+  animation-delay: 1500ms;
+}
+
+.container[data-animal="Dog"] .shaker {
+  animation-delay: 1600ms;
+}
+
+.container[data-animal="Frog"] .shaker {
+  animation-delay: 1700ms;
+}
+.container[data-animal="PigeonFly"] .shaker {
+  animation-delay: 1800ms;
 }
 
 .image {
@@ -32,5 +67,21 @@
 
   100% {
     transform: translateY(-1%) rotate(-2deg);
+  }
+}
+
+
+
+@keyframes party {
+  0% {
+    transform: rotateZ(-10deg);
+  }
+
+  50% {
+    transform: rotateZ(10deg) scaleX(-1);
+  }
+
+  100% {
+    transform: rotateZ(-10deg);
   }
 }
