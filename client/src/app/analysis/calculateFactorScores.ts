@@ -15,10 +15,11 @@ export function calculateFactorScores(
   return factorsTraits.map(({ factor, traits }) => {
     const traitScores = traits
       .map((factorTrait) => {
-        const targetTrait = targetTraits.find(it => it.trait === factorTrait.trait);
-        return (targetTrait !== undefined)
-          ? targetTrait.points * factorTrait.points
-          : null;
+        const targetTraitPoints = targetTraits
+          .filter(it => it.trait === factorTrait.trait)
+          .map(it => it.points * factorTrait.points)
+        if (targetTraitPoints.length === 0) return null
+        else return targetTraitPoints.reduce((a: number, b: number | null) => a + (b || 0), 0)
       })
     if (traitScores.every(it => it === null)) return { factor, score: null }
     else return { factor, score: traitScores.reduce((a: number, b: number | null) => a + (b || 0), 0) };

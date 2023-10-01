@@ -5,33 +5,34 @@ import { calculateFactorScores } from './calculateFactorScores'
 test("correct factor scores for a single trait type", () => {
   const allFactorTraits: FactorTraits[] = [
     {
-      factor: Factor.TEST_1,
+      factor: Factor.HUMANITIES,
       traits: [
-        { trait: CandidateTrait.TEST_1, points: 1 },
+        { trait: CandidateTrait.HUMANITIES, points: 1 },
       ]
     },
     {
-      factor: Factor.TEST_2,
+      factor: Factor.SCIENCE,
       traits: [
-        { trait: CandidateTrait.TEST_1, points: 0.25 },
-        { trait: CandidateTrait.TEST_2, points: -0.5 },
-        { trait: UniversityTrait.A, points: 1 }
+        { trait: CandidateTrait.HUMANITIES, points: -0.25 },
+        { trait: CandidateTrait.SCIENCE, points: 1 },
+        { trait: UniversityTrait.SCIENCE, points: 1 }
       ]
     },
     {
       factor: Factor.TEST_3,
       traits: [
-        { trait: MajorTrait.B, points: 1 },
+        { trait: MajorTrait.SCIENCE, points: 1 },
       ]
     }
   ]
   const targetTraits = [
-    { trait: CandidateTrait.TEST_1, points: 1 },
-    { trait: CandidateTrait.TEST_2, points: -1 },
+    { trait: CandidateTrait.HUMANITIES, points: 0.25 },
+    { trait: CandidateTrait.HUMANITIES, points: 0.75 },
+    { trait: CandidateTrait.SCIENCE, points: -1 },
   ]
   const resultScores = calculateFactorScores(targetTraits, allFactorTraits)
-  expect(resultScores.find(it => it.factor === Factor.TEST_1)?.score).toBe(1)
-  expect(resultScores.find(it => it.factor === Factor.TEST_2)?.score).toBe(0.75)
+  expect(resultScores.find(it => it.factor === Factor.HUMANITIES)?.score).toBe(1)
+  expect(resultScores.find(it => it.factor === Factor.SCIENCE)?.score).toBe(-1.25)
   expect(resultScores.find(it => it.factor === Factor.TEST_3)?.score).toBeNull()
 })
 

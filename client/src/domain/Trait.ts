@@ -1,6 +1,9 @@
 import { GameResponse } from './Game'
 
-export enum CandidateTrait { C = 'C' }
+export enum CandidateTrait { 
+  HUMANITIES = 'CANDIDATE_HUMANITIES',
+  SCIENCE = 'CANDIDATE_SCIENCE',
+ }
 
 export interface ResponseTraits {
   response: GameResponse
@@ -10,5 +13,5 @@ export interface ResponseTraits {
   }[]
 }
 
-export enum UniversityTrait { A = 'A' }
-export enum MajorTrait { B = 'B' }
+export enum UniversityTrait { HUMANITIES = 'UNIVERSITY_HUMANITIES', SCIENCE = 'UNIVERSITY_SCIENCE' }
+export enum MajorTrait { HUMANITIES = 'MAJOR_HUMANITIES', SCIENCE = 'MAJOR_SCIENCE' }
