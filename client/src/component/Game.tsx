@@ -5,12 +5,13 @@ import { lines } from "@/data/first-scene";
 import { Answer, CommittedAnswer } from "@/data/types";
 import React, { useEffect, useMemo, useState } from "react";
 import { Scene } from "./Scene";
-import { soundtrack } from "@/data/audio";
+import { useAudio } from "@/data/audio";
 import Result from "./Result";
 
 interface GameProps {}
 
 const Game: React.FC<GameProps> = () => {
+  const audio = useAudio();
   const [committedAnswers, setAnswers] = useState<Array<CommittedAnswer>>([]);
   const currentLine = useMemo(() => {
     return lines.find((line) => {
@@ -22,7 +23,7 @@ const Game: React.FC<GameProps> = () => {
   }, [committedAnswers]);
 
   useEffect(() => {
-    soundtrack.play();
+    audio.soundtrack.play();
   }, []);
 
   const onAnswerSelected = (answer: Answer | null = null) => {

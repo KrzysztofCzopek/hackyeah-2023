@@ -4,7 +4,7 @@ import * as Types from "@/data/types";
 import { images } from "@/data/characters";
 
 import Image from "next/image";
-import { sounds } from "@/data/audio";
+import { useAudio } from "@/data/audio";
 
 interface CharacterProps {
   character?: Types.CharacterType;
@@ -18,6 +18,7 @@ const Character: React.FC<CharacterProps> = ({
   const [displayedCharacter, setDisplayedCharacter] =
     useState<Types.CharacterType | null>(null);
   const [hidden, setHidden] = useState<boolean>(true);
+  const audio = useAudio();
 
   useEffect(() => {
     (async function () {
@@ -34,14 +35,14 @@ const Character: React.FC<CharacterProps> = ({
         await new Promise((resolve) => {
           timeoutId = setTimeout(resolve, 100);
         });
-        sounds[character].play();
+        audio.sounds[character].play();
         setHidden(false);
       }
       return () => {
         clearTimeout(timeoutId);
       }
     })();
-  }, [character]);
+  }, [audio.sounds, character]);
 
   return displayedCharacter !== null ? (
     <div className={styles.container} data-flip={flip}>

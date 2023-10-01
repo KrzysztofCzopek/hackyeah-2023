@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Narration.module.css";
 import * as Types from "@/data/types";
 import Button from "./Button";
-import Typewriter, { TypewriterClass } from "typewriter-effect";
+import Typewriter from "typewriter-effect";
 
 interface NarrationProps {
   narration: Types.Narration;

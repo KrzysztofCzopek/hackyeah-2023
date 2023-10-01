@@ -1,4 +1,4 @@
-import React, { use, useMemo, useState } from "react";
+import React from "react";
 import styles from "./Scene.module.css";
 
 import * as Types from "@/data/types";
