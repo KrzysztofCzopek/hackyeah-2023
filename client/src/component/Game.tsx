@@ -7,12 +7,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Scene } from "./Scene";
 import { useAudio } from "@/data/audio";
 import Result from "./Result";
+import Start from "./Start";
 
 interface GameProps {}
 
 const Game: React.FC<GameProps> = () => {
-  const audio = useAudio();
   const [committedAnswers, setAnswers] = useState<Array<CommittedAnswer>>([]);
+  const [isStarted, setStarted] = useState<boolean>(false);
   const currentLine = useMemo(() => {
     return lines.find((line) => {
       const isAnswered = committedAnswers.some(
@@ -22,9 +23,14 @@ const Game: React.FC<GameProps> = () => {
     });
   }, [committedAnswers]);
 
+  const onStarted = () => {
+    setStarted(true);
+  };
+
+  const { soundtrack } = useAudio();
   useEffect(() => {
-    audio.soundtrack?.play();
-  }, []);
+    soundtrack?.play();
+  }, [soundtrack]);
 
   const onAnswerSelected = (answer: Answer | null = null) => {
     if (!currentLine) {
@@ -43,6 +49,10 @@ const Game: React.FC<GameProps> = () => {
       ]);
     }
   };
+
+  if (!isStarted) {
+    return <Start onStarted={onStarted} />;
+  }
 
   return currentLine !== undefined ? (
     <Scene scene={currentLine} onAnswerSelected={onAnswerSelected} />

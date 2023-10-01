@@ -35,6 +35,7 @@ const Character: React.FC<CharacterProps> = ({
         await new Promise((resolve) => {
           timeoutId = setTimeout(resolve, 100);
         });
+        console.log(audio.sounds?.[character])
         audio.sounds?.[character]?.play();
         setHidden(false);
       }

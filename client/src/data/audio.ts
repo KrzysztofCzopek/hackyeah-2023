@@ -1,7 +1,7 @@
 import { Audio, AudioType } from "ts-audio";
 import { CharacterType } from "./types";
-import { useMemo } from "react";
-
+import { useEffect, useMemo, useState } from "react";
+import { Howl } from "howler";
 
 const fallback = {
   soundtrack: null,
@@ -11,43 +11,47 @@ const fallback = {
 };
 
 export const useAudio = () => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
   return useMemo(() => {
-    if (typeof window === "undefined") {
+    if (!loaded) {
       return fallback;
     }
 
-    const soundtrack = Audio({
-      file: "/audio/gameplay.mp3",
-      loop: true,
-      volume: 0.2,
-    });
-
-    const button = Audio({
-      file: "/audio/click.wav",
+    const soundtrack = new Howl({
+      src: ["/audio/gameplay.mp3"],
       volume: 0.1,
     });
 
-    const hallelujah = Audio({
-      file: "/audio/hallelujah.mp3",
+    const button = new Howl({
+      src: ["/audio/click.wav"],
       volume: 0.1,
     });
 
-    const sounds: Record<CharacterType, AudioType> = {
-      [CharacterType.Note]: Audio({ file: "/audio/paper.mp3", volume: 0.1 }),
-      [CharacterType.Frog]: Audio({ file: "/audio/frog.mp3" }),
-      [CharacterType.Cat]: Audio({ file: "/audio/dog.mp3" }),
-      [CharacterType.Dog]: Audio({ file: "/audio/dog.mp3" }),
-      [CharacterType.Boberek]: Audio({
-        file: "/audio/beaver.mp3",
+    const hallelujah = new Howl({
+      src: ["/audio/hallelujah.mp3"],
+      volume: 0.1,
+    });
+
+    const sounds: Record<CharacterType, Howl> = {
+      [CharacterType.Note]: new Howl({ src: "/audio/paper.mp3", volume: 0.1 }),
+      [CharacterType.Frog]: new Howl({ src: "/audio/frog.mp3" }),
+      [CharacterType.Cat]: new Howl({ src: "/audio/dog.mp3" }),
+      [CharacterType.Dog]: new Howl({ src: "/audio/dog.mp3" }),
+      [CharacterType.Boberek]: new Howl({
+        src: "/audio/beaver.mp3",
         volume: 0.1,
       }),
-      [CharacterType.PigeonStand]: Audio({ file: "/audio/owl.mp3" }),
-      [CharacterType.PigeonFly]: Audio({ file: "/audio/owl.mp3" }),
-      [CharacterType.Capibara]: Audio({
-        file: "/audio/capybara.mp3",
+      [CharacterType.PigeonStand]: new Howl({ src: "/audio/owl.mp3" }),
+      [CharacterType.PigeonFly]: new Howl({ src: "/audio/owl.mp3" }),
+      [CharacterType.Capibara]: new Howl({
+        src: "/audio/capybara.mp3",
         volume: 0.1,
       }),
-      [CharacterType.Diplodok]: Audio({ file: "/audio/dinosaur.mp3" }),
+      [CharacterType.Diplodok]: new Howl({ src: "/audio/dinosaur.mp3" }),
     };
     return {
       soundtrack,
@@ -55,5 +59,5 @@ export const useAudio = () => {
       hallelujah,
       sounds,
     };
-  }, []);
+  }, [loaded]);
 };

@@ -788,6 +788,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/howler@^2.2.9":
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/@types/howler/-/howler-2.2.9.tgz#cc2ceaa27663cf263bb15e557ba92bfbb49128eb"
+  integrity sha512-kNi8mBM+IAmMzo1xhFlR8pKUWqCz9kEtiT1Xp5hZW0ynQl2wUg0EAm+brsHvhahMzxlADt0Xhu0jV/NHmk/Ibg==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.4.tgz#8467d4b3c087805d63580480890791277ce35c44"
@@ -2141,6 +2146,11 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
+
+howler@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/howler/-/howler-2.2.4.tgz#bd3df4a4f68a0118a51e4bd84a2bfc2e93e6e5a1"
+  integrity sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==
 
 html-escaper@^2.0.0:
   version "2.0.2"
