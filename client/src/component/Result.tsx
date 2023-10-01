@@ -51,6 +51,14 @@ const Result: React.FC<ResultProps> = ({ answers, onRestart }) => {
         { 
           response: { answer: 'pies', question: 'oswietlenie-odpowiedz' },
           traits: [{ trait: CandidateTrait.AFFINITY_SCIENCE, points: 1}]
+        },
+        { 
+          response: { answer: 'boberek', question: 'aktywnosc-odpowiedz' },
+          traits: [{ trait: CandidateTrait.AFFINITY_SCIENCE, points: 1}]
+        },
+        { 
+          response: { answer: 'zabka', question: 'aktywnosc-odpowiedz' },
+          traits: [{ trait: CandidateTrait.AFFINITY_HUMANITIES, points: 1}]
         }
       ],
       [
@@ -86,6 +94,7 @@ const Result: React.FC<ResultProps> = ({ answers, onRestart }) => {
                   <a target="_blank" href={item.major.syllabusUrl} className={styles.url}>
                     Zobacz syllabus!
                   </a>
+                  <p className={styles.resultItemDescription}>Score: {item.ranking}</p>
                 </li>
               );
             })}
