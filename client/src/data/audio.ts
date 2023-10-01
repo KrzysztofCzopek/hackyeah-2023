@@ -26,6 +26,7 @@ export const useAudio = () => {
     const soundtrack = new Howl({
       src: ["/audio/gameplay.mp3"],
       volume: 0.5,
+      autoplay: true,
     });
 
     const button = new Howl({
@@ -36,6 +37,7 @@ export const useAudio = () => {
     const intro = new Howl({
       src: ["/audio/intro.mp3"],
       volume: 0.4,
+      autoplay: true,
     });
 
     const outro = new Howl({
