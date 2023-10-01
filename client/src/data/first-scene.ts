@@ -6,7 +6,7 @@ export const lines: Types.Line[] = [
     speaking: "right",
     environment: Types.Environment.Room,
     content: {
-      text: "Najwysza pora wypełnić te dokumenty...",
+      text: "Najwyższa pora wypełnić te dokumenty...",
       key: "notes-0",
     },
   },
